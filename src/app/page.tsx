@@ -56,8 +56,6 @@ export default function Home() {
 
   if (error) return <h1>An Error Has Occured</h1>;
 
-  console.log('STUFF', loading, filteredAdvocates, error);
-
   return (
     <main
       style={{
