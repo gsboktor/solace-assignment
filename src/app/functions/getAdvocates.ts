@@ -10,9 +10,9 @@ export const getAdvocates = async (): Promise<Advocate[]> => {
         const res = await fetch('/api/advocates');
         const advocateData = await res.json();
 
-        advocatesResponseSchema.parse(advocateData);
+        const schemaRes = advocatesResponseSchema.parse(advocateData);
 
-        return advocateData.data as Advocate[];
+        return schemaRes.data as Advocate[];
       } catch (e) {
         if (e instanceof ZodError) {
           let issues = e.issues.map((e) => e.message);
